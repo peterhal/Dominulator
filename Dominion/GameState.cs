@@ -18,7 +18,8 @@ namespace Dominion
         private MapOfCardsForGameSubset<PileOfCards> mapCardToPile;
         public BagOfCards trash;
         private MapPileOfCards<bool> hasPileEverBeenGained;
-        private MapPileOfCards<int> pileEmbargoTokenCount;                     
+        internal MapPileOfCards<int> pileEmbargoTokenCount;
+        private TurnletQueue queue;
 
         public int InProgressGameIndex;        
 
@@ -288,7 +289,7 @@ namespace Dominion
             }
         }
 
-        private bool CardAvailableForPurchaseForCurrentPlayer(Card card)
+        internal bool CardAvailableForPurchaseForCurrentPlayer(Card card)
         {
             PlayerState currentPlayer = this.players.CurrentPlayer;
             return currentPlayer.AvailableCoins >= card.CurrentCoinCost(currentPlayer) &&
@@ -474,6 +475,15 @@ namespace Dominion
         {
             return this.trash.Where(card => card.isTreasure).GroupBy(card => card).Count();
         }
-        
+
+        internal void AddTurnlet(TurnletSpecification turnlet)
+        {
+            queue.Add(turnlet);
+        }
+
+        internal void AddTurnlet(OnBuySpecification onBuySpecification)
+        {
+            throw new NotImplementedException();
+        }
     }          
 }

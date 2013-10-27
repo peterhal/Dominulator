@@ -68,6 +68,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionPhaseSpecification.cs" />
+    <Compile Include="BeginTurnSpecification.cs" />
+    <Compile Include="BuyPhaseSpecification.cs" />
     <Compile Include="Cards.cs" />
     <Compile Include="Cards\Alchemy.cs" />
     <Compile Include="Cards\BaseSet.cs" />
@@ -79,6 +82,7 @@
     <Compile Include="Cards\Promo.cs" />
     <Compile Include="Cards\Prosperity.cs" />
     <Compile Include="Cards\Seaside.cs" />
+    <Compile Include="CleanupPhase.cs" />
     <Compile Include="Collections\BagOfCards.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Collections\CardGameSubset.cs" />
@@ -91,8 +95,14 @@
     <Compile Include="Collections\PileOfCards.cs" />
     <Compile Include="Collections\SetOfCards.cs" />
     <Compile Include="Collections\SingletonCardHolder.cs" />
+    <Compile Include="EndPlayCardSpecification.cs" />
+    <Compile Include="GainCardSpecification.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameLogs\GameLogMultiplexer.cs" />
+    <Compile Include="OnBuyCardInPlayReaction.cs" />
+    <Compile Include="OnBuySpecification.cs" />
+    <Compile Include="PlayCardSpecification.cs" />
+    <Compile Include="PlayTreasuresSpecification.cs" />
     <Compile Include="SimpleDefinitions\CardCountPair.cs" />
     <Compile Include="SimpleDefinitions\CardPlacementPair.cs" />
     <Compile Include="SimpleDefinitions\CardRelativeCost.cs" />
@@ -113,6 +123,9 @@
     <Compile Include="Collections\ListOfCards.cs" />
     <Compile Include="GameLogs\IGameLog.cs" />
     <Compile Include="IPlayerAction.cs" />
+    <Compile Include="Turnlet.cs" />
+    <Compile Include="TurnletQueue.cs" />
+    <Compile Include="TurnletSpecification.cs" />
     <Compile Include="UnimplementedPlayerAction.cs" />
     <Compile Include="SimpleDefinitions\PlayerActionChoice.cs" />
     <Compile Include="PlayerCircle.cs" />

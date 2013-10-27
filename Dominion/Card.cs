@@ -402,6 +402,12 @@ namespace Dominion
         public static bool DoesCardCost3To6(Card card, PlayerState player)
         {            
             return card.CurrentCoinCost(player) >= 3 && card.CurrentCoinCost(player) <= 6 && card.potionCost == 0;
-        }        
+        }
+
+        // TODO: This should be abstract, once all cards override this method.
+        public virtual void Play(GameState state, PlayerState player)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -30,6 +30,10 @@ namespace Dominion
             {
                 return this.players[this.currentPlayerIndex];
             }
+            set
+            {
+                this.currentPlayerIndex = value.playerIndex;
+            }
         }
 
         public PlayerState PlayerLeft
@@ -64,13 +68,19 @@ namespace Dominion
             }
         }
 
+        public PlayerState NextPlayer(PlayerState player)
+        {
+            return this.players[NextPlayerIndex(player.playerIndex)];
+        }
+
+        private int NextPlayerIndex(int playerIndex)
+        {
+            return (playerIndex + 1) == this.players.Count() ? 0 : playerIndex + 1;
+        }
+
         public void PassTurnLeft()
         {
-            this.currentPlayerIndex++;
-            if (this.currentPlayerIndex >= this.players.Count())
-            {
-                this.currentPlayerIndex = 0;
-            }
+            this.currentPlayerIndex = NextPlayerIndex(currentPlayerIndex);
         }
 
         public PlayerState this[int index]
